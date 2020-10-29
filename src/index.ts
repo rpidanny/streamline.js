@@ -1,5 +1,1 @@
-const echo = (msg: string): string => {
-  return msg
-}
-
-export default echo
+export * from './streamline'

@@ -1,9 +1,3 @@
-# typescript-package-template
+# streamline.js
 
-A boilerplate for typescript packages pre-filled with awesome goodies like:
-
-* semantic-release
-* commitlint
-* husky
-* jest
-* Github Actions
+A JavaScript class that reads and processes a stream line-by-line in order.
