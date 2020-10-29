@@ -1,5 +1,5 @@
 {
-  "name": "@rpidanny/typescript-package-template",
+  "name": "@rpidanny/streamline.js",
   "version": "0.0.0",
   "description": "Typescript package boilerplate template",
   "main": "dist/index.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rpidanny/typescript-package-template.git"
+    "url": "git+https://github.com/rpidanny/streamline.js.git"
   },
   "keywords": [
     "typescript",
@@ -26,9 +26,9 @@
   "author": "Abhishek <abhishek.rpidanny@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rpidanny/typescript-package-template/issues"
+    "url": "https://github.com/rpidanny/streamline.js/issues"
   },
-  "homepage": "https://github.com/rpidanny/typescript-package-template#readme",
+  "homepage": "https://github.com/rpidanny/streamline.js#readme",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
