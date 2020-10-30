@@ -49,3 +49,4 @@ export abstract class Streamline {
 
 export * from './SimpleStreamProcessor'
 export * from './SimpleCsvProcessor'
+export * from './SimpleJsonProcessor'
