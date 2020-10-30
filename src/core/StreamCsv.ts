@@ -12,7 +12,7 @@ export class StreamCsv extends StreamLine {
     await this.processItem(item)
   }
 
-  async parseLine(line: string): Promise<Array<any>> {
+  async parseLine(line: string): Promise<Array<unknown>> {
     try {
       const [item] = csvParse(line, this.parsingOptions)
 
@@ -30,5 +30,5 @@ export class StreamCsv extends StreamLine {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  async processItem(_item: Array<any>): Promise<void> {}
+  async processItem(_item: Array<unknown>): Promise<void> {}
 }
