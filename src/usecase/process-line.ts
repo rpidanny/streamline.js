@@ -9,7 +9,8 @@ export class SimpleLineProcessor extends StreamLine {
 export const processLine = (
   readStream: NodeJS.ReadStream,
   handler: (line: string) => Promise<void>,
+  concurrency = 1,
 ): Promise<void> => {
   const processor = new SimpleLineProcessor(readStream, handler)
-  return processor.start()
+  return processor.start(concurrency)
 }

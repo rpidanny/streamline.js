@@ -12,7 +12,8 @@ export class SimpleJsonProcessor extends StreamJson {
 export const processJson = (
   readStream: NodeJS.ReadStream,
   handler: (item: Record<string, unknown>) => Promise<void>,
+  concurrency = 1,
 ): Promise<void> => {
   const processor = new SimpleJsonProcessor(readStream, handler)
-  return processor.start()
+  return processor.start(concurrency)
 }

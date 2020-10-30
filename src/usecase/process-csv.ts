@@ -12,7 +12,8 @@ export class SimpleCsvProcessor extends StreamCsv {
 export const processCsv = (
   readStream: NodeJS.ReadStream,
   handler: (item: Array<unknown>) => Promise<void>,
+  concurrency = 1,
 ): Promise<void> => {
   const processor = new SimpleCsvProcessor(readStream, handler)
-  return processor.start()
+  return processor.start(concurrency)
 }
