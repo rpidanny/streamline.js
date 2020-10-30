@@ -1,14 +1,16 @@
 import _ from 'highland'
 
-export abstract class Streamline {
-  abstract getInputStream(): NodeJS.ReadableStream
+export abstract class StreamLine {
+  abstract handler(_line: string): Promise<void>
 
+  constructor(private readStream: NodeJS.ReadableStream) {}
+
+  getInputStream(): NodeJS.ReadableStream {
+    return this.readStream
+  }
   errorHandler(err: Error, push: (err: Error) => void): void {
     return push(err)
   }
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  async handler(_line: string): Promise<void> {}
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onStart(): void {}
@@ -46,7 +48,3 @@ export abstract class Streamline {
     }
   }
 }
-
-export * from './SimpleStreamProcessor'
-export * from './SimpleCsvProcessor'
-export * from './SimpleJsonProcessor'

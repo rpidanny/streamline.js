@@ -1,6 +1,6 @@
-import { SimpleStreamProcessor } from './SimpleStreamProcessor'
+import { StreamLine } from './StreamLine'
 
-export class SimpleJsonProcessor extends SimpleStreamProcessor {
+export class StreamJson extends StreamLine {
   async handler(line: string): Promise<void> {
     const item = await this.parseLine(line)
     await this.processItem(item)

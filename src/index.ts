@@ -1,1 +1,1 @@
-export * from './streamline'
+export * from './core'

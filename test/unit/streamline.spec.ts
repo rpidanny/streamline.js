@@ -1,12 +1,16 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Streamline } from '../../src/streamline'
-import { TestStreamline } from '../utils/classes'
+import toReadableStream from 'to-readable-stream'
 
-describe('Streamline', () => {
-  let sl: Streamline
+import { StreamLine } from '../../src'
+import { TestStreamLine } from '../utils/classes'
+
+describe('StreamLine', () => {
+  let sl: StreamLine
+  let readStream: NodeJS.ReadStream
 
   beforeEach(() => {
-    sl = new TestStreamline()
+    readStream = toReadableStream('hello\nworld') as NodeJS.ReadStream
+    sl = new TestStreamLine(readStream)
   })
 
   describe('Hooks', () => {
@@ -17,11 +21,11 @@ describe('Streamline', () => {
     let spyEndHook: jest.SpyInstance
 
     beforeEach(() => {
-      spyStartHook = jest.spyOn(TestStreamline.prototype, 'onStart')
-      spyRun = jest.spyOn(TestStreamline.prototype, 'run')
-      spyCompleteHook = jest.spyOn(TestStreamline.prototype, 'onComplete')
-      spyFailedHook = jest.spyOn(TestStreamline.prototype, 'onFailed')
-      spyEndHook = jest.spyOn(TestStreamline.prototype, 'onEnd')
+      spyStartHook = jest.spyOn(TestStreamLine.prototype, 'onStart')
+      spyRun = jest.spyOn(TestStreamLine.prototype, 'run')
+      spyCompleteHook = jest.spyOn(TestStreamLine.prototype, 'onComplete')
+      spyFailedHook = jest.spyOn(TestStreamLine.prototype, 'onFailed')
+      spyEndHook = jest.spyOn(TestStreamLine.prototype, 'onEnd')
     })
 
     afterEach(() => {
@@ -60,10 +64,10 @@ describe('Streamline', () => {
     let spyGetInputStream: jest.SpyInstance
 
     beforeEach(() => {
-      spyHandler = jest.spyOn(TestStreamline.prototype, 'handler')
-      spyErrorHandler = jest.spyOn(TestStreamline.prototype, 'errorHandler')
-      spyFailedHook = jest.spyOn(TestStreamline.prototype, 'onFailed')
-      spyGetInputStream = jest.spyOn(TestStreamline.prototype, 'getInputStream')
+      spyHandler = jest.spyOn(TestStreamLine.prototype, 'handler')
+      spyErrorHandler = jest.spyOn(TestStreamLine.prototype, 'errorHandler')
+      spyFailedHook = jest.spyOn(TestStreamLine.prototype, 'onFailed')
+      spyGetInputStream = jest.spyOn(TestStreamLine.prototype, 'getInputStream')
     })
 
     afterEach(() => {
@@ -87,5 +91,9 @@ describe('Streamline', () => {
       expect(spyErrorHandler).toHaveBeenCalledTimes(1)
       expect(spyFailedHook).toHaveBeenCalledTimes(1)
     })
+  })
+
+  it('should return provided stream', () => {
+    expect(sl.getInputStream()).toBe(readStream)
   })
 })

@@ -1,10 +1,10 @@
 import stream from 'stream'
 
-import { SimpleJsonProcessor } from '../../src/streamline'
+import { StreamJson } from '../../src'
 
-describe('SimpleJsonProcessor', () => {
+describe('StreamJson', () => {
   let readStream!: NodeJS.ReadableStream
-  let sjp!: SimpleJsonProcessor
+  let sjp!: StreamJson
 
   const parsedData = {
     id: 123412,
@@ -14,7 +14,7 @@ describe('SimpleJsonProcessor', () => {
 
   beforeAll(() => {
     readStream = new stream.Readable()
-    sjp = new SimpleJsonProcessor(readStream)
+    sjp = new StreamJson(readStream)
   })
 
   it('should return parsed json ', async () => {
@@ -22,7 +22,7 @@ describe('SimpleJsonProcessor', () => {
   })
 
   it('should call processItem with parsed item', async () => {
-    const spyProcessItem = jest.spyOn(SimpleJsonProcessor.prototype, 'processItem')
+    const spyProcessItem = jest.spyOn(StreamJson.prototype, 'processItem')
 
     await sjp.handler(rawData)
 

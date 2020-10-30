@@ -1,10 +1,10 @@
 import { CsvError } from 'csv-parse'
 import csvParse from 'csv-parse/lib/sync'
 
-import { SimpleStreamProcessor } from './SimpleStreamProcessor'
+import { StreamLine } from './StreamLine'
 import { CsvParsingError } from './errors'
 
-export class SimpleCsvProcessor extends SimpleStreamProcessor {
+export class StreamCsv extends StreamLine {
   private parsingOptions = { quote: '"', ltrim: true, rtrim: true, delimiter: ',' }
 
   async handler(line: string): Promise<void> {

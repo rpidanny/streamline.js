@@ -1,10 +1,10 @@
 import stream from 'stream'
 
-import { SimpleCsvProcessor } from '../../src/streamline'
+import { StreamCsv } from '../../src'
 
-describe('SimpleCsvProcessor', () => {
+describe('StreamCsv', () => {
   let readStream!: NodeJS.ReadableStream
-  let scp!: SimpleCsvProcessor
+  let scp!: StreamCsv
 
   const header = {
     raw: '"id", "name"',
@@ -21,7 +21,7 @@ describe('SimpleCsvProcessor', () => {
 
   beforeAll(() => {
     readStream = new stream.Readable()
-    scp = new SimpleCsvProcessor(readStream)
+    scp = new StreamCsv(readStream)
   })
 
   it('should return parsed csv as am array', async () => {
@@ -34,7 +34,7 @@ describe('SimpleCsvProcessor', () => {
   })
 
   it('should call processItem with parsed item', async () => {
-    const spyProcessItem = jest.spyOn(SimpleCsvProcessor.prototype, 'processItem')
+    const spyProcessItem = jest.spyOn(StreamCsv.prototype, 'processItem')
 
     await scp.handler(body.raw)
 
@@ -63,17 +63,6 @@ describe('SimpleCsvProcessor', () => {
       } catch (err) {
         expect(err).toBeInstanceOf(Error)
         expect(err).toHaveProperty('name', 'CsvParsingError')
-      }
-    })
-
-    it('should throw TypeError when null', async () => {
-      expect.assertions(2)
-      const input = null
-      try {
-        await scp.parseLine(input)
-      } catch (err) {
-        expect(err).toBeInstanceOf(Error)
-        expect(err).toHaveProperty('name', 'TypeError')
       }
     })
   })

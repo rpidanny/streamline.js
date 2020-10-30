@@ -1,9 +1,6 @@
-import toReadableStream from 'to-readable-stream'
+/* eslint-disable @typescript-eslint/no-empty-function */
+import { StreamLine } from '../../src'
 
-import { Streamline } from '../../src/streamline'
-
-export class TestStreamline extends Streamline {
-  getInputStream(): NodeJS.ReadableStream {
-    return toReadableStream('hello\nworld')
-  }
+export class TestStreamLine extends StreamLine {
+  async handler(): Promise<void> {}
 }
