@@ -18,7 +18,8 @@ describe('Process Line', () => {
   })
 
   describe('Concurrency', () => {
-    const delayMillis = 1000
+    const delayMillis = 500
+    const prescaler = 100
 
     it('should process items in sequence', async () => {
       const start = performance.now()
@@ -27,7 +28,7 @@ describe('Process Line', () => {
       })
       const end = performance.now()
       const executionTime = end - start
-      expect(Math.floor(executionTime / 1000)).toEqual((delayMillis * 2) / 1000)
+      expect(Math.floor(executionTime / prescaler)).toEqual((delayMillis * 2) / prescaler)
     })
 
     it('should process items in parallel', async () => {
@@ -41,7 +42,7 @@ describe('Process Line', () => {
       )
       const end = performance.now()
       const executionTime = end - start
-      expect(Math.floor(executionTime / 1000)).toEqual(delayMillis / 1000)
+      expect(Math.floor(executionTime / prescaler)).toEqual(delayMillis / prescaler)
     })
   })
 })
