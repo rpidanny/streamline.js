@@ -1,0 +1,18 @@
+import { StreamJson } from '../core'
+
+export class SimpleJsonProcessor extends StreamJson {
+  constructor(
+    readStream: NodeJS.ReadStream,
+    public processItem: (item: Record<string, unknown>) => Promise<void>,
+  ) {
+    super(readStream)
+  }
+}
+
+export const processJson = (
+  readStream: NodeJS.ReadStream,
+  handler: (item: Record<string, unknown>) => Promise<void>,
+): Promise<void> => {
+  const processor = new SimpleJsonProcessor(readStream, handler)
+  return processor.start()
+}

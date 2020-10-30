@@ -1,6 +1,6 @@
 import stream from 'stream'
 
-import { StreamJson } from '../../src'
+import { StreamJson } from '../../../src'
 
 describe('StreamJson', () => {
   let readStream!: NodeJS.ReadableStream

@@ -9,8 +9,8 @@
     "lint": "eslint . --ext .js,.ts",
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run lint && jest ./test/*",
-    "test:watch": "jest --watch ./test/unit/*.spec.ts",
-    "test:watch:test": "jest --watch ./test/unit/streamline.spec.ts",
+    "test:watch": "jest --watch ./test/unit/*/*.spec.ts",
+    "test:watch:test": "jest --watch ./test/unit/usecase/process-csv.spec.ts",
     "dev": "ts-node src/index.ts",
     "semantic-release": "semantic-release"
   },

@@ -1,6 +1,6 @@
 import stream from 'stream'
 
-import { StreamCsv } from '../../src'
+import { StreamCsv } from '../../../src'
 
 describe('StreamCsv', () => {
   let readStream!: NodeJS.ReadableStream
