@@ -1,7 +1,7 @@
 # streamline.js
 
 ![gh-actions](https://github.com/rpidanny/streamline.js/workflows/CI/badge.svg)
- [![codecov](https://codecov.io/gh/rpidanny/streamline.js/branch/main/graph/badge.svg?token=CEVMNUEI52)](undefined)
+ [![codecov](https://codecov.io/gh/rpidanny/streamline.js/branch/main/graph/badge.svg)](https://codecov.io/gh/rpidanny/streamline.js)
 
 A JavaScript package that helps to reads and processes a stream line-by-line in order or in batches in parallel.
 
