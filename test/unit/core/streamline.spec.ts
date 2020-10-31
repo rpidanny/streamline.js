@@ -2,7 +2,7 @@
 import toReadableStream from 'to-readable-stream'
 
 import { StreamLine } from '../../../src'
-import { TestStreamLine } from '../../utils/classes'
+import { TestStreamLine } from '../../utils'
 
 describe('StreamLine', () => {
   let sl: StreamLine

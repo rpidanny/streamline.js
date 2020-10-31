@@ -4,7 +4,9 @@ import csvParse from 'csv-parse/lib/sync'
 import { StreamLine } from './StreamLine'
 import { CsvParsingError } from './errors'
 
-export class StreamCsv extends StreamLine {
+export abstract class StreamCsv extends StreamLine {
+  abstract async processItem(_item: Array<unknown>): Promise<void>
+
   private parsingOptions = { quote: '"', ltrim: true, rtrim: true, delimiter: ',' }
 
   async handler(line: string): Promise<void> {
@@ -28,7 +30,4 @@ export class StreamCsv extends StreamLine {
       throw err
     }
   }
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  async processItem(_item: Array<unknown>): Promise<void> {}
 }
