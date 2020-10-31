@@ -1,11 +1,11 @@
 import stream from 'stream'
 
-import { StreamCsv } from '../../../src'
-import { TestStreamCsv } from '../../utils'
+import { StreamlineCsv } from '../../../src'
+import { TestStreamlineCsv } from '../../utils'
 
-describe('StreamCsv', () => {
+describe('StreamlineCsv', () => {
   let readStream!: NodeJS.ReadableStream
-  let scp!: StreamCsv
+  let scp!: StreamlineCsv
 
   const header = {
     raw: '"id", "name"',
@@ -22,7 +22,7 @@ describe('StreamCsv', () => {
 
   beforeAll(() => {
     readStream = new stream.Readable()
-    scp = new TestStreamCsv(readStream)
+    scp = new TestStreamlineCsv(readStream)
   })
 
   it('should return parsed csv as am array', async () => {
@@ -35,7 +35,7 @@ describe('StreamCsv', () => {
   })
 
   it('should call processItem with parsed item', async () => {
-    const spyProcessItem = jest.spyOn(TestStreamCsv.prototype, 'processItem')
+    const spyProcessItem = jest.spyOn(TestStreamlineCsv.prototype, 'processItem')
 
     await scp.handler(body.raw)
 

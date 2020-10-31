@@ -1,6 +1,6 @@
 import _ from 'highland'
 
-export abstract class StreamLine {
+export abstract class Streamline {
   abstract handler(_line: string): Promise<void>
 
   constructor(private readStream: NodeJS.ReadableStream) {}

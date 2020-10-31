@@ -1,6 +1,6 @@
-import { StreamLine } from '../core'
+import { Streamline } from '../core'
 
-export class SimpleLineProcessor extends StreamLine {
+export class SimpleLineProcessor extends Streamline {
   constructor(readStream: NodeJS.ReadStream, public handler: (line: string) => Promise<void>) {
     super(readStream)
   }

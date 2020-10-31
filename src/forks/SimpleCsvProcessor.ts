@@ -1,6 +1,6 @@
-import { StreamCsv } from '../core'
+import { StreamlineCsv } from '../core'
 
-export class SimpleCsvProcessor extends StreamCsv {
+export class SimpleCsvProcessor extends StreamlineCsv {
   constructor(
     readStream: NodeJS.ReadStream,
     public processItem: (item: Array<unknown>) => Promise<void>,

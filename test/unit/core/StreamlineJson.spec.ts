@@ -1,11 +1,11 @@
 import stream from 'stream'
 
-import { StreamJson } from '../../../src'
-import { TestStreamJson } from '../../utils'
+import { StreamlineJson } from '../../../src'
+import { TestStreamlineJson } from '../../utils'
 
-describe('StreamJson', () => {
+describe('StreamlineJson', () => {
   let readStream!: NodeJS.ReadableStream
-  let sjp!: StreamJson
+  let sjp!: StreamlineJson
 
   const parsedData = {
     id: 123412,
@@ -15,7 +15,7 @@ describe('StreamJson', () => {
 
   beforeAll(() => {
     readStream = new stream.Readable()
-    sjp = new TestStreamJson(readStream)
+    sjp = new TestStreamlineJson(readStream)
   })
 
   it('should return parsed json ', async () => {
@@ -23,7 +23,7 @@ describe('StreamJson', () => {
   })
 
   it('should call processItem with parsed item', async () => {
-    const spyProcessItem = jest.spyOn(TestStreamJson.prototype, 'processItem')
+    const spyProcessItem = jest.spyOn(TestStreamlineJson.prototype, 'processItem')
 
     await sjp.handler(rawData)
 

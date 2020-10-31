@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { StreamLine, StreamJson, StreamCsv } from '../../src'
+import { Streamline, StreamlineJson, StreamlineCsv } from '../../src'
 
-export class TestStreamLine extends StreamLine {
+export class TestStreamline extends Streamline {
   async handler(): Promise<void> {}
 }
 
-export class TestStreamCsv extends StreamCsv {
+export class TestStreamlineCsv extends StreamlineCsv {
   async processItem(): Promise<void> {}
 }
 
-export class TestStreamJson extends StreamJson {
+export class TestStreamlineJson extends StreamlineJson {
   async processItem(): Promise<void> {}
 }

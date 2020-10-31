@@ -1,6 +1,6 @@
-import { StreamJson } from '../core'
+import { StreamlineJson } from '../core'
 
-export class SimpleJsonProcessor extends StreamJson {
+export class SimpleJsonProcessor extends StreamlineJson {
   constructor(
     readStream: NodeJS.ReadStream,
     public processItem: (item: Record<string, unknown>) => Promise<void>,
