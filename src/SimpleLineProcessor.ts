@@ -1,4 +1,4 @@
-import { Streamline } from '../core'
+import { Streamline } from './'
 
 export class SimpleLineProcessor extends Streamline {
   constructor(readStream: NodeJS.ReadableStream, public handler: (line: string) => Promise<void>) {

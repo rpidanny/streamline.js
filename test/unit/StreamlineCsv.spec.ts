@@ -1,7 +1,7 @@
 import stream from 'stream'
 
-import { StreamlineCsv } from '../../../src'
-import { TestStreamlineCsv } from '../../utils'
+import { StreamlineCsv } from '../../src'
+import { TestStreamlineCsv } from '../utils'
 
 describe('StreamlineCsv', () => {
   let readStream!: NodeJS.ReadableStream

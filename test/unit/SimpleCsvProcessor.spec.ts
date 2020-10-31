@@ -1,22 +1,27 @@
 import { performance } from 'perf_hooks'
 import toReadableStream from 'to-readable-stream'
 
-import { processJson } from '../../../src'
+import { processCsv } from '../../src'
 
-describe('Process JSON', () => {
+describe('Process CSV', () => {
   let readStream: NodeJS.ReadableStream
-  const testData1 = { id: 0, name: 'Annapurna' }
-  const testData2 = { id: 1, name: 'Machapuchare' }
+  const header = {
+    raw: '"id", "name"',
+    parsed: ['id', 'name'],
+  }
+  const body = {
+    raw: '212312, "John"',
+    parsed: ['212312', 'John'],
+  }
+  const testCsv = `${header.raw}\n${body.raw}`
 
   beforeEach(() => {
-    readStream = toReadableStream(
-      `${JSON.stringify(testData1)}\n${JSON.stringify(testData2)}`,
-    ) as NodeJS.ReadableStream
+    readStream = toReadableStream(testCsv) as NodeJS.ReadableStream
   })
 
   it('should read the stream and call handler for each line', async () => {
-    const expectedValues = [testData2, testData1]
-    await processJson(readStream, async (item: Record<string, unknown>) => {
+    const expectedValues = [body.parsed, header.parsed]
+    await processCsv(readStream, async (item: Array<unknown>) => {
       expect(item).toEqual(expectedValues.pop())
     })
   })
@@ -27,7 +32,7 @@ describe('Process JSON', () => {
 
     it('should process items in sequence', async () => {
       const start = performance.now()
-      await processJson(readStream, async (_item: Record<string, unknown>) => {
+      await processCsv(readStream, async (_item: Array<unknown>) => {
         await new Promise((r) => setTimeout(r, delayMillis))
       })
       const end = performance.now()
@@ -37,9 +42,9 @@ describe('Process JSON', () => {
 
     it('should process items in parallel', async () => {
       const start = performance.now()
-      await processJson(
+      await processCsv(
         readStream,
-        async (_item: Record<string, unknown>) => {
+        async (_item: Array<unknown>) => {
           await new Promise((r) => setTimeout(r, delayMillis))
         },
         2,

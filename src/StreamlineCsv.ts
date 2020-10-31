@@ -1,8 +1,7 @@
 import { CsvError } from 'csv-parse'
 import csvParse from 'csv-parse/lib/sync'
 
-import { Streamline } from './Streamline'
-import { CsvParsingError } from '../errors'
+import { Streamline, CsvParsingError } from './'
 
 export abstract class StreamlineCsv extends Streamline {
   abstract async processItem(_item: Array<unknown>): Promise<void>

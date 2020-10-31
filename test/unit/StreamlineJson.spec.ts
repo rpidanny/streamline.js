@@ -1,7 +1,7 @@
 import stream from 'stream'
 
-import { StreamlineJson } from '../../../src'
-import { TestStreamlineJson } from '../../utils'
+import { StreamlineJson } from '../../src'
+import { TestStreamlineJson } from '../utils'
 
 describe('StreamlineJson', () => {
   let readStream!: NodeJS.ReadableStream

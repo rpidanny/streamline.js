@@ -1,4 +1,4 @@
-import { StreamlineJson } from '../core'
+import { StreamlineJson } from './'
 
 export class SimpleJsonProcessor extends StreamlineJson {
   constructor(

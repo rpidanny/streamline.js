@@ -1,4 +1,4 @@
-import { Streamline } from './Streamline'
+import { Streamline } from './'
 
 export abstract class StreamlineJson extends Streamline {
   abstract async processItem(_item: Record<string, unknown>): Promise<void>

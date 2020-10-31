@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import toReadableStream from 'to-readable-stream'
 
-import { Streamline } from '../../../src'
-import { TestStreamline } from '../../utils'
+import { Streamline } from '../../src'
+import { TestStreamline } from '../utils'
 
 describe('Streamline', () => {
   let sl: Streamline

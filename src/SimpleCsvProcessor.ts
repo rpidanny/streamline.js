@@ -1,4 +1,4 @@
-import { StreamlineCsv } from '../core'
+import { StreamlineCsv } from './'
 
 export class SimpleCsvProcessor extends StreamlineCsv {
   constructor(

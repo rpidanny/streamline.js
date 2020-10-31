@@ -1,7 +1,7 @@
 import { performance } from 'perf_hooks'
 import toReadableStream from 'to-readable-stream'
 
-import { processLine } from '../../../src'
+import { processLine } from '../../src'
 
 describe('Process Line', () => {
   let readStream: NodeJS.ReadableStream
