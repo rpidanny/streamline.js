@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/rpidanny/streamline.js/compare/v1.0.0...v1.0.1) (2020-10-31)
+
+
+### Bug Fixes
+
+* package name and changelog ([#4](https://github.com/rpidanny/streamline.js/issues/4)) ([1a6ac39](https://github.com/rpidanny/streamline.js/commit/1a6ac3923575abd182a333252cf619a4799e8c5c))
+
 # 1.0.0 (2020-10-31)
 
 
