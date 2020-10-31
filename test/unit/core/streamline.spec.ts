@@ -6,10 +6,10 @@ import { TestStreamline } from '../../utils'
 
 describe('Streamline', () => {
   let sl: Streamline
-  let readStream: NodeJS.ReadStream
+  let readStream: NodeJS.ReadableStream
 
   beforeEach(() => {
-    readStream = toReadableStream('hello\nworld') as NodeJS.ReadStream
+    readStream = toReadableStream('hello\nworld') as NodeJS.ReadableStream
     sl = new TestStreamline(readStream)
   })
 

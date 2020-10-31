@@ -2,7 +2,7 @@ import { StreamlineCsv } from '../core'
 
 export class SimpleCsvProcessor extends StreamlineCsv {
   constructor(
-    readStream: NodeJS.ReadStream,
+    readStream: NodeJS.ReadableStream,
     public processItem: (item: Array<unknown>) => Promise<void>,
   ) {
     super(readStream)
@@ -10,7 +10,7 @@ export class SimpleCsvProcessor extends StreamlineCsv {
 }
 
 export const processCsv = (
-  readStream: NodeJS.ReadStream,
+  readStream: NodeJS.ReadableStream,
   handler: (item: Array<unknown>) => Promise<void>,
   concurrency = 1,
 ): Promise<void> => {

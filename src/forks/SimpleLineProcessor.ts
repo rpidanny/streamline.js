@@ -1,13 +1,13 @@
 import { Streamline } from '../core'
 
 export class SimpleLineProcessor extends Streamline {
-  constructor(readStream: NodeJS.ReadStream, public handler: (line: string) => Promise<void>) {
+  constructor(readStream: NodeJS.ReadableStream, public handler: (line: string) => Promise<void>) {
     super(readStream)
   }
 }
 
 export const processLine = (
-  readStream: NodeJS.ReadStream,
+  readStream: NodeJS.ReadableStream,
   handler: (line: string) => Promise<void>,
   concurrency = 1,
 ): Promise<void> => {

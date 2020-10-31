@@ -4,10 +4,10 @@ import toReadableStream from 'to-readable-stream'
 import { processLine } from '../../../src'
 
 describe('Process Line', () => {
-  let readStream: NodeJS.ReadStream
+  let readStream: NodeJS.ReadableStream
 
   beforeEach(() => {
-    readStream = toReadableStream('hello\nworld') as NodeJS.ReadStream
+    readStream = toReadableStream('hello\nworld') as NodeJS.ReadableStream
   })
 
   it('should read the stream and call handler for each line', async () => {

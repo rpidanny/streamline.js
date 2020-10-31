@@ -2,7 +2,7 @@ import { StreamlineJson } from '../core'
 
 export class SimpleJsonProcessor extends StreamlineJson {
   constructor(
-    readStream: NodeJS.ReadStream,
+    readStream: NodeJS.ReadableStream,
     public processItem: (item: Record<string, unknown>) => Promise<void>,
   ) {
     super(readStream)
@@ -10,7 +10,7 @@ export class SimpleJsonProcessor extends StreamlineJson {
 }
 
 export const processJson = (
-  readStream: NodeJS.ReadStream,
+  readStream: NodeJS.ReadableStream,
   handler: (item: Record<string, unknown>) => Promise<void>,
   concurrency = 1,
 ): Promise<void> => {

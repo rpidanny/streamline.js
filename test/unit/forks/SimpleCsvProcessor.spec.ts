@@ -4,7 +4,7 @@ import toReadableStream from 'to-readable-stream'
 import { processCsv } from '../../../src'
 
 describe('Process CSV', () => {
-  let readStream: NodeJS.ReadStream
+  let readStream: NodeJS.ReadableStream
   const header = {
     raw: '"id", "name"',
     parsed: ['id', 'name'],
@@ -16,7 +16,7 @@ describe('Process CSV', () => {
   const testCsv = `${header.raw}\n${body.raw}`
 
   beforeEach(() => {
-    readStream = toReadableStream(testCsv) as NodeJS.ReadStream
+    readStream = toReadableStream(testCsv) as NodeJS.ReadableStream
   })
 
   it('should read the stream and call handler for each line', async () => {
