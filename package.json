@@ -1,7 +1,7 @@
 {
   "name": "@rpidanny/streamline.js",
   "version": "1.0.0",
-  "description": "Typescript package boilerplate template",
+  "description": "A JavaScript package that helps to reads and processes a stream line-by-line in order or in batches in parallel.",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "scripts": {
@@ -21,8 +21,10 @@
   "keywords": [
     "typescript",
     "javascript",
-    "template",
-    "boilerplate"
+    "stream",
+    "data",
+    "big data",
+    "data processing"
   ],
   "author": "Abhishek <abhishek.rpidanny@gmail.com>",
   "license": "MIT",
