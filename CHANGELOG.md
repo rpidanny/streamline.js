@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/rpidanny/streamline.js/compare/v1.0.1...v1.0.2) (2020-11-02)
+
+
+### Bug Fixes
+
+* gh actions badge ([#6](https://github.com/rpidanny/streamline.js/issues/6)) ([105d952](https://github.com/rpidanny/streamline.js/commit/105d952df7421952ae80dc72e58c0acb4dbc05b7))
+
 ## [1.0.1](https://github.com/rpidanny/streamline.js/compare/v1.0.0...v1.0.1) (2020-10-31)
 
 
