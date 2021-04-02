@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/rpidanny/streamline.js/compare/v1.0.2...v1.0.3) (2021-04-02)
+
+
+### Bug Fixes
+
+* dependabot auto-merge ([8b87b3d](https://github.com/rpidanny/streamline.js/commit/8b87b3d0d0dc9a1d250037ae1d6cd732c7bbfd63))
+
 ## [1.0.2](https://github.com/rpidanny/streamline.js/compare/v1.0.1...v1.0.2) (2020-11-02)
 
 
